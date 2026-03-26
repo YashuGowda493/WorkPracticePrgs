@@ -20,6 +20,8 @@ public class Order {
 	private int id;
 	private String o_name;
 	private int o_price;
+	private int o_quant;
+	
 	
 	@ManyToOne
 //	(fetch=FetchType.LAZY)
@@ -42,6 +44,12 @@ public class Order {
 	}
 	public void setO_price(int o_price) {
 		this.o_price = o_price;
+	}
+	public int getO_quant() {
+		return o_quant;
+	}
+	public void setO_quant(int o_quant) {
+		this.o_quant = o_quant;
 	}
 	public User getUser() {
 		return user;
