@@ -21,7 +21,12 @@ public class User {
 //	@Column(name="user_id")
 	private int id;
 	private String u_name;
+	private String u_location;
+	private String u_city;
+	private int u_pincode;
+	private long phone;
 
+	
 	@OneToMany(cascade = CascadeType.ALL)
 	@JoinColumn(name="o_id")
 	@OrderColumn(name="type")
@@ -38,6 +43,30 @@ public class User {
 	}
 	public void setU_name(String u_name) {
 		this.u_name = u_name;
+	}
+	public String getU_location() {
+		return u_location;
+	}
+	public void setU_location(String u_location) {
+		this.u_location = u_location;
+	}
+	public String getU_city() {
+		return u_city;
+	}
+	public void setU_city(String u_city) {
+		this.u_city = u_city;
+	}
+	public int getU_pincode() {
+		return u_pincode;
+	}
+	public void setU_pincode(int u_pincode) {
+		this.u_pincode = u_pincode;
+	}
+	public long getPhone() {
+		return phone;
+	}
+	public void setPhone(long phone) {
+		this.phone = phone;
 	}
 	public List<Order> getOdr() {
 		return odr;
