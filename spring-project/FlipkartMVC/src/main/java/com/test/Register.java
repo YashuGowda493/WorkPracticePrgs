@@ -23,7 +23,7 @@ public class Register extends HttpServlet {
 		String user=request.getParameter("user");
 		String pwd=request.getParameter("pwd");
 		User obj=new User();
-		// obj.setFname(name);
+		obj.setFname(name);
 			
 		obj.setUsername(user);
 		obj.setPassword(pwd);
