@@ -1,0 +1,244 @@
+______________________
+KEY POINTS (18-03-2026)
+______________________
+
+y to take string data as a parameter in java main method?? input/output format will be string format later converting and recoverting and string is final class and args is used bcoz every obj is considered as an index of that array
+
+
+interface is universe accessor and by default abstract methods.
+to implement the implemented methods we can use default /static, protected cant be used
+static method cant be override but default method can be overridden in future.
+
+
+abstract class can contains both abstract and implemented methods
+abstract have constructors but not in interface.
+
+
+static data is class level data to access them use only class name
+instance data is object level data we can use access with object also along with class name
+
+there are multiple ways to create objects in class there are 4 ways they are:
+default constructor, factory method, reflection, cloning method
+
+factory method: any method returning itself and have same name is factory method
+default constructor is provided by jvm
+there is no usage of static to constructor
+
+exception : all runtime errors are exception ,synchrouns
+error: comes under asynchrous 
+types of exception:compile time/checked and runtime /unchecked
+
+custom exception can be created using throw keyword and 
+unknown exception can be found by printstacktrace
+
+thread based apps means -> 10 threads =10 jobs simultanesouly librariries used are java.lang.thread and runnable
+non thread based means->10 methods simu
+
+
+java is 100% platform independent ?? no,only byte code is independent but not jvm
+ 
+functional interface : inside a interface only 1 abstract method is called functional interface
+
+hierarchy of collection framework
+|
+|->
+|
+______________________
+KEY POINTS(19-03-2026)
+______________________
+
+advance java is J2EE/JEE
+Core java-> A2SE/JSE
+
+Types of web apps
+|->static websites 
+|->dynamic websites
+
+architectures->(2tier,3tier,n-tier)
+
+Common gateway interface(CGI)
+MVC architecture
+
+servlet lifecycle---->init
+			|
+		     service(req,res)
+			|
+		     destroy()
+
+
+
+Servlet programming:
+difference between requestdispather and sendredirect?? -> requestdispatcher provides for only pages not for external links but sendredirect can provide both the service to open url and pages too
+
+doget ()->not secure of username password bcoz it will display in url
+dopost()-> secure bcoz the username and password will be encrypted in url
+
+servlet context-> it creates only one obj for entire application and can share data from one servlet to another
+servlet config ->it will create individual object for each individual servlet
+
+more differences are
+servlet-config | servlet-context
+	object represents single servlet || it represent whole web app running on particular jvm and common for all servlet .
+	its like local parameter associated with particular servlet || its like global parameter associated with whole application.
+	its a name value paired defined inside servlet section of web.xml || it has application wide scope so define outside of servlet tag in web.xml .
+	getservletconfig() is used to get object || getservletcontext() is used to get the object .
+	for example shopping cart of a user is a specific to particular user || for example aplliction session information common for all
+
+load-on-startup is used to structure and schedule or to arrange the servlets one of the other
+
+2 types of configuration
+|->xml config
+|->annotation config
+
+Session tracking
+there are 4 types:
+|->cookie
+|->hidden form fields
+|->url rewriting
+|->http session
+
+
+Filters:
+for one server multiple filters can be applied, filters are applied for authorization,authentication etc.
+
+Listner:
+types:
+|->contextListner
+|->httpSession
+|->servletrequest
+
+KEY POINTS(20-03-2026)
+
+
+JSP Tags
+<% %> is a scriplet tag pure java tag we can 
+<%! %>is a declaration tag inside this custom tags can be created not inbuilt but usage can be done
+<%= %> expression tag
+custom tag can be created in jsp
+JSTL->jsp tag library
+
+_____________JSP____________
+jsp is an alternative technology for servlets 
+
+Phases in jsp:
+|->translation phase - it converts .jsp into .java program internally, once this phase is completed the entire jsp program is available into java code
+|->compilation phase - it converts .java into .class file provided no errors found in .java file 
+|->Execution or running phase - it is the process of executing .class file by the container
+
+Limitations of servlets v/s Jsp provides
+* In order to develop any servlet java language must be known || * to write any jsp program java language is not necessary i.e., a non-java program can write a jsp page effectively.
+* servlets does not provide any custom tag development || * jsp provides the fetures to develop custom tags
+* servlets does not provide any implicit objects || *every jsp page contains n number of implicit objects such as out,session,exception,etc
+  
+________________________________________________
+JSP architecture 
+	response
+client <-------- [servlet] in servlet engine
+		   ^
+		   |
+		   |
+client	-------->[Jsp] in jsp engine
+	request
+
+__________________________________________________
+
+Lifecycle of jsp----> jspInit();
+			 |
+		jspService(req,res);
+  			 |
+		jspDestroy();
+
+
+Implicit Objects ---creator or instatiiated by
+1.out			1.JSPWriter extends PrintWriter
+2.request		2.Httpservletrequest
+3.response		3.httpservletresponse
+4.application		4.servletcontext
+5.config		5.servletconfig
+6.pageContext
+7.page
+8.session
+9.exception
+
+types of tags of jstl:
+|->Format tags, url=<%@ taglib uri="jakarta.tags.fmt" prefix="fmt"%>
+|->Function tags,url=<%@ taglib uri="jakarta.tags.functions" prefix="fn"%>
+|->XML tags ,url=<%@ taglib uri="jakarta.tags.xml" prefix="x"%>
+|->sql tags,url=<%@ taglib uri="jakarta.tags.sql" prefix="sql"%>
+|->core tags url=<%@ taglib uri="jakarta.tags.core" prefix="c"%>
+
+KEY POINTS(24-03-2026)
+
+Maven Lifecycle
+verify<-integration test<-pakage<-test	
+|				  ^
+^				  |    
+install->deploy->validate->compile
+					
+
+JDBC: 
+
+
+Features of hibernate:
+* Database independent-to generate db specific queries,allowing same java code on different rdbms
+* Caching mechanism- it improves performance via a mandatory 1st level cache (session level),and an optional 2nd level cache(factory level) to reduce db hits
+* lazy loading - optimizing where child objects only loaded when explicitly needed rather than during initial parent object fetch
+* JPA Implementation - hibernate is a certified implementation of Jakarta persistence api
+
+JDBC v/s Hibernate:
+-> Code Type: procedural and heavy boiler plate code | oop and reduces boiler plate code
+-> language type : native SQL | HQL
+-> Exceptions : mandatory checked exception | unchecked exceptions
+-> Mapping : manual mapping of result using joins | automatic ORM mappings using 1to1,1-to-many
+
+
+
+______________________________________________________________________________________________
+Q1.create maven project and implement hibernate inheritance concept,hql query,criteria,querybuilder,namedqueries and push the working code to GitHub and update in excel sheet
+_______________________________________________________________________________________________________
+
+"n+1" problem in hibernate is a performance anti-pattern where the application executes one initial database query(the 1) to retrive a list of parent entities,and the n additional queries(the n) to fetch the lazily loaded chils entities for each item in the list this leads to a significant increase in database round tips and slow response times,especially,as the number of entities grows
+____________________________________________________________________________________________________
+Q2.create a maven project to implement all hibernate mappings 
+___________________________________________________________________________________________
+
+KEY POINTS(27-03-2026)
+
+SPRING Concepts
+
+Spring framework is a robust platform which provides more security to an application .It is a popular opensource java platform that provides comprehensive infrastructure support for building a robust enterprise application.
+it basically considered as a "framework of frameworks" .
+key features of spring are:spring framework is highly modular,consisting of about 20 different modules   
+* Inversion of control container:It manges the bean lifecycle and configuration of java objects. Eg: BeanFactory it is a interface and ApplicationContext
+*Dependency injection :a concrete info of IoC,DI allows objects to receive their dependencies from spring container rather than creating them themselves . Eg:Setter injection and constructor injection
+* Aspect-Oriented Programming(AOP) : it allows developers to modularize cross-cutting concerns like logging,security and transaction separating from the main business logic.
+* Data access framework : spring provides an abstraction layer that simplifies database interaction. Eg: JDBC,JPA,Hibernate
+* Spring MVC and WebFlux : mvc is synchronous and webflux is asynchronous
+* Transaction Management: it offers a consistent abstraction for mapping transactions across different data access technologies
+* testing support : 
+
+
+Spring Framework architecture
+
+
+bean lifecycle diagram:
+container started-> bean initiated->dependencies injected-> custom init() method -> custom utility method -> custom destroy method
+
+SpringEL means Spring Expression language
+
+Local Transactions v/s Distributed transactions
+DatasourcetransactionManager || Distribute transaction Manager
+Single db applications || apllications with multiple data sources
+No coordination needed || requires coordination between resources
+easier to handle failures within single resource || More challenging to ensure atomicity across multiple resources
+
+
+Method level path
+http://localhost:7799/RestAPIExp1/rest/hello/text
+
+
+
+
+
+
+
