@@ -237,8 +237,22 @@ Method level path
 http://localhost:7799/RestAPIExp1/rest/hello/text
 
 
+What is SpringBoot
+It is basically an extension of the Spring framework which eliminated the boilerplate configurations required for setting up a spring application.
 
+spring framework + embedded http servers(Tomcat,Jetty) - XML<bean>configuration = SpringBoot
 
+Annotations :
+* @SpringBootApplication =@EnableAutoconfiguration + @componentScan + @SpringBootConfiguration
+* @Controller and @RestController
+* @Component used along generic type
+* @CrossOrigin used along react and angulr and @PathVariable
+* @GetMapping and  @PostMapping
+* @Repository
+* @RequestBody ,@ResponseBody etc....
 
+Restful web services :
+REST - REpresentational State Transfer is an architectural style not a protocol 
+these web services are fast bcoz there is no strict specification like SOAP.It consumes less bandwidth and resource
 
 
