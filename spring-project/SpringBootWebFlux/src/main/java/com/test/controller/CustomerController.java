@@ -28,4 +28,17 @@ public class CustomerController {
 	public Flux<Customer> listAllCustomers(){
 		return repo.findAll();
 	}
+	@GetMapping("/{id}")
+	public Mono<Customer> getCustById(@PathVariable long id){
+		return repo.findById(id);
+	}
+	@PutMapping("/update/{id}")
+	public Mono<Customer> updateCustById(@PathVariable long id,@RequestBody Customer customer){
+		customer.setId(id);
+		return repo.save(customer);
+	}
+	@DeleteMapping("/delete/{id}")
+	public Disposable deleteCustById(@PathVariable long id,@RequestBody Customer customer){
+		return repo.deleteById(id).subscribe();
+	
 }
