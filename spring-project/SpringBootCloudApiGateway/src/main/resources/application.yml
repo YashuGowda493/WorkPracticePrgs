@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: =SpringBootCloudApiGateway
+server:
+  port: 7799
