@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: StudentMicroserviceClient
+
+
+  web:
+    error:
+      whitelabel:
+        enabled: false
+  jackson:
+    deserialization:
+      fail-on-null-for-primitives: false
+
+eureka:
+  client:
+    service-url:
+      default-zone: http://localhost:8761/eureka/
+
+server:
+  port: 3333
